@@ -20,15 +20,19 @@ else
   read -p "enter [y/n]" option
   if [$option=='y']
   then
+    su
     locale -a
     echo "Type the locale from the list above(with utf coding)."
     read -p prompt $zone1
     sudo cd /.
     sudo cd etc/default/
+    sudo chmod +w locale
     sudo rm -rf locale
     echo "LANG=$zone1
     LC_TIME=$zone1>locale
     sudo update-locale LANG=$zone LANGUAGE
+    LANG=$zone
+    LC_TIME=$zone
     export LANG
     export LC_TIME
     locale -k LC_TIME
