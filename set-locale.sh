@@ -29,5 +29,7 @@ else
     echo "LANG=$zone1
     LC_TIME=$zone1>locale
     sudo update-locale LANG=$zone LANGUAGE
+    export LANG
+    export LC_TIME
     locale -k LC_TIME
 fi
